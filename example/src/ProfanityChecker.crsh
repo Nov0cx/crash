@@ -1,8 +1,6 @@
 import crash.collections.Collection;
 import crash.collections.ArrayList;
 
-import * from Levenshtein;
-
 public class {
 
 	Collection<String> badWords;
