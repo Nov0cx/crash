@@ -1,0 +1,14 @@
+main() {
+	ProfanityChecker checker = new ProfanityChecker();
+	
+	checker.add("SomeBadWord");
+	
+	boolean bad = checker.isBad("SomeBadWord!!", 0.6);
+	
+	if (bad) {
+		print("This word is BAD!!!");
+		return;
+	}
+	
+	print("This word is fine.");
+}

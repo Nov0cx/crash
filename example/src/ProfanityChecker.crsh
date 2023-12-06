@@ -1,0 +1,51 @@
+import crash.collections.Collection;
+import crash.collections.ArrayList;
+
+import * from Levenshtein;
+
+public class {
+
+	Collection<String> badWords;
+	
+	public() {
+		this.badWords = new ArrayList();
+	}
+	
+	public(Collection<String> badWords) {
+		this.badWords = new ArrayList(badWords);
+	}
+	
+	public addBadWord(String word) {
+		this.badWords.add(word.toLowerCase());
+	}
+	
+	public boolean isBad(String input, f32 sensitivity) {
+		String lowerCaseInput = input.toLowerCase();
+		
+		mut double percentage = 0;
+		
+		for (String word : lowerCaseInput.split(" ")) {
+			for (String badWord : this.badWords) {
+				percentage += calcSimilarity(word, badWord);
+			}
+		}
+		
+		percentage = percentage / lowerCaseInput.length();
+		
+		return percentage > sensitivity;
+	}
+	
+	f64 calcSimilarity(String target, String word) {
+		if (target.equals(word)) return 1.0;
+		
+		f64 maxLength = Float.max(target.length(), word.length());
+		
+		if (maxLength > 0) {
+			return (maxLength - getDistance(target, word)) / maxLength;
+		}
+	
+		return 1.0;
+	}
+	
+	Collection<String> getBadWords() this.badWords;
+}
