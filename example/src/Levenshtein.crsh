@@ -8,7 +8,7 @@ public u32 getDistance(String target, String text) {
 		T[charIndex][0] = charIndex;
 	}
 	
-	for (int charIndex = 1; charIndex <= textLength; charIndex++) [
+	for (int charIndex = 1; charIndex <= textLength; charIndex++) {
 		T[0][charIndex] = charIndex;
 	}
 	
